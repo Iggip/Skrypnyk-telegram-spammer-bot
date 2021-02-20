@@ -11,13 +11,17 @@ pip install requests
 python bot.py
 
 # iNSTUCTION
+For everything to work, you need to make bot1 an administrator, and in BotFather enter the command /setprivacy and select Disabled.
+
 use command:
 
-* /start@bot1_nickname - to start spaming
+* /start - to start spaming
 
-* /stop@bot1_nickname - to stop spaming
+* /stop - to stop spaming
+
+* /text - to enter new message text
 
 # SETTINGS in config.py
 TOKENS - is list that contains every one of bots tokens
 
-text - is a text that bots will send
+text - is a default text that bots will send
