@@ -4,6 +4,7 @@ import time
 
 flood = False
 text = config.text
+expecting_text = False
 if len(config.TOKENS) == 1:
     bot1 = telebot.TeleBot(config.TOKENS[0])
 
@@ -215,6 +216,22 @@ def answer(message):
     flood = False
     while flood:
         flooding(message.chat.id)
+
+
+@bot1.message_handler(commands=['text'])
+def answer(message):
+    global expecting_text
+    bot1.send_message(message.chat.id, 'Enter the text:')
+    expecting_text = True
+
+
+@bot1.message_handler(content_types=['text'])
+def answer(message):
+    global text
+    global expecting_text
+    if expecting_text:
+        text = message.text
+        bot1.send_message(message.chat.id, 'Now text is ' + text)
 
 
 while 1:
