@@ -3,6 +3,7 @@ import config
 import time
 
 flood = False
+text = config.text
 if len(config.TOKENS) == 1:
     bot1 = telebot.TeleBot(config.TOKENS[0])
 
