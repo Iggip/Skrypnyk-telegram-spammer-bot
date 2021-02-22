@@ -6,7 +6,7 @@ git clone https://github.com/CoderBogdasha/Skrypnyk-telegram-spamer-bot/
 
 cd Skrypnyk-telegram-spamer-bot/
 
-pip install requests
+pip install -r requirements.txt
 
 python bot.py
 
