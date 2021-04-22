@@ -2,7 +2,7 @@
 Skrypnyk is a set of telegram bots (now <= 10), which can send text countless times in one chat
 
 # INSTALL
-git clone https://github.com/CoderBogdasha/Skrypnyk-telegram-spamer-bot/
+git clone https://github.com/Iggip/Skrypnyk-telegram-spamer-bot/
 
 cd Skrypnyk-telegram-spamer-bot/
 
