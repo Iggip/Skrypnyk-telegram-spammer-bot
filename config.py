@@ -1,2 +1,2 @@
 TOKENS = ['token1', 'token2', 'token3', ...]
-text = 'YOUR_TEXT'
+way = 'FILENAME.FILENAME_EXTENSION'
