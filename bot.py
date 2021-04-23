@@ -1,238 +1,129 @@
 import telebot
 import config
 import time
+import os
+import pickle
 
-flood = False
-text = config.text
-expecting_text = False
-if len(config.TOKENS) == 1:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
+try:
+    data = pickle.load(open(config.way, "rb"))
+except FileNotFoundError:
+    pickle.dump({}, open(config.way, "wb"))
+    data = {}
 
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 2:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
+if not os.path.exists('photos'):
+    os.mkdir('photos')
 
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 3:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
-    bot3 = telebot.TeleBot(config.TOKENS[2])
+bots = []
+bot = telebot.TeleBot(config.TOKENS[0])
 
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot3.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 4:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
-    bot3 = telebot.TeleBot(config.TOKENS[2])
-    bot4 = telebot.TeleBot(config.TOKENS[3])
-
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot3.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot4.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 5:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
-    bot3 = telebot.TeleBot(config.TOKENS[2])
-    bot4 = telebot.TeleBot(config.TOKENS[3])
-    bot5 = telebot.TeleBot(config.TOKENS[4])
-
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot3.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot4.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot5.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 6:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
-    bot3 = telebot.TeleBot(config.TOKENS[2])
-    bot4 = telebot.TeleBot(config.TOKENS[3])
-    bot5 = telebot.TeleBot(config.TOKENS[4])
-    bot6 = telebot.TeleBot(config.TOKENS[5])
-
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot3.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot4.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot5.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot6.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 7:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
-    bot3 = telebot.TeleBot(config.TOKENS[2])
-    bot4 = telebot.TeleBot(config.TOKENS[3])
-    bot5 = telebot.TeleBot(config.TOKENS[4])
-    bot6 = telebot.TeleBot(config.TOKENS[5])
-    bot7 = telebot.TeleBot(config.TOKENS[6])
-
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot3.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot4.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot5.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot6.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot7.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 8:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
-    bot3 = telebot.TeleBot(config.TOKENS[2])
-    bot4 = telebot.TeleBot(config.TOKENS[3])
-    bot5 = telebot.TeleBot(config.TOKENS[4])
-    bot6 = telebot.TeleBot(config.TOKENS[5])
-    bot7 = telebot.TeleBot(config.TOKENS[6])
-    bot8 = telebot.TeleBot(config.TOKENS[7])
-
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot3.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot4.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot5.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot6.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot7.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot8.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 9:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
-    bot3 = telebot.TeleBot(config.TOKENS[2])
-    bot4 = telebot.TeleBot(config.TOKENS[3])
-    bot5 = telebot.TeleBot(config.TOKENS[4])
-    bot6 = telebot.TeleBot(config.TOKENS[5])
-    bot7 = telebot.TeleBot(config.TOKENS[6])
-    bot8 = telebot.TeleBot(config.TOKENS[7])
-    bot9 = telebot.TeleBot(config.TOKENS[8])
-
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot3.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot4.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot5.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot6.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot7.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot8.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot9.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-elif len(config.TOKENS) == 10:
-    bot1 = telebot.TeleBot(config.TOKENS[0])
-    bot2 = telebot.TeleBot(config.TOKENS[1])
-    bot3 = telebot.TeleBot(config.TOKENS[2])
-    bot4 = telebot.TeleBot(config.TOKENS[3])
-    bot5 = telebot.TeleBot(config.TOKENS[4])
-    bot6 = telebot.TeleBot(config.TOKENS[5])
-    bot7 = telebot.TeleBot(config.TOKENS[6])
-    bot8 = telebot.TeleBot(config.TOKENS[7])
-    bot9 = telebot.TeleBot(config.TOKENS[8])
-    bot10 = telebot.TeleBot(config.TOKENS[9])
-
-    def flooding(message_id):
-        bot1.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot2.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot3.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot4.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot5.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot6.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot7.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot8.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot9.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
-        bot10.send_message(message_id, text)
-        time.sleep(2.5/len(config.TOKENS))
+for x in range(0, len(config.TOKENS)):
+    bots.append(telebot.TeleBot(config.TOKENS[x]))
 
 
-@bot1.message_handler(commands=['start'])
+def flooding(message_chat_id):
+    global data
+    data = pickle.load(open(config.way, "rb"))
+    if data[message_chat_id]['i'] == len(config.TOKENS):
+        data[message_chat_id]['i'] = 0
+    if data[message_chat_id]['type'] == 'text':
+        bots[data[message_chat_id]['i']].send_message(message_chat_id, data[message_chat_id]['text'])
+        time.sleep(2.5 / len(config.TOKENS))
+    elif data[message_chat_id]['type'] == 'sticker':
+        bots[data[message_chat_id]['i']].send_sticker(message_chat_id, data[message_chat_id]['sticker'])
+        time.sleep(2.5 / len(config.TOKENS))
+    elif data[message_chat_id]['type'] == 'photo':
+        bots[data[message_chat_id]['i']].send_photo(message_chat_id,
+                                                    photo=open('photos/'+str(message_chat_id)+'/image.jpg', 'rb'))
+        time.sleep(2.5 / len(config.TOKENS))
+    data[message_chat_id]['i'] = data[message_chat_id]['i'] + 1
+    pickle.dump(data, open(config.way, "wb"))
+
+
+def begin(message):
+    global data
+    data[message.chat.id] = {'flood': False, 'type': None, 'text': None, 'sticker': None, 'photo': None,
+                             'expecting_text': False, 'i': 0}
+    pickle.dump(data, open(config.way, "wb"))
+    try:
+        os.mkdir('photos/'+str(message.chat.id))
+    except OSError:
+        pass
+
+
+@bot.message_handler(commands=['start'])
 def answer(message):
-    global flood, text
-    flood = True
-    while flood:
+    if not os.path.exists('photos/'+str(message.chat.id)):
+        begin(message)
+    global data
+    data = pickle.load(open(config.way, "rb"))
+    bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+    if data[message.chat.id]['type']:
+        data[message.chat.id]['flood'] = True
+        pickle.dump(data, open(config.way, "wb"))
+        bot.send_message(message.chat.id, 'started')
+        while data[message.chat.id]['flood']:
+            flooding(message.chat.id)
+    else:
+        bot.send_message(message.chat.id, 'First, enter the message text')
+
+
+@bot.message_handler(commands=['stop'])
+def answer(message):
+    if not os.path.exists('photos/'+str(message.chat.id)):
+        begin(message)
+    global data
+    data = pickle.load(open(config.way, "rb"))
+    data[message.chat.id]['flood'] = False
+    data[message.chat.id]['i'] = 0
+    pickle.dump(data, open(config.way, "wb"))
+    bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+    bot.send_message(message.chat.id, 'stopped')
+    while data[message.chat.id]['flood']:
         flooding(message.chat.id)
 
 
-@bot1.message_handler(commands=['stop'])
+@bot.message_handler(commands=['text'])
 def answer(message):
-    global flood
-    flood = False
-    while flood:
-        flooding(message.chat.id)
+    if not os.path.exists('photos/'+str(message.chat.id)):
+        begin(message)
+    global data
+    data = pickle.load(open(config.way, "rb"))
+    bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+    bot.send_message(message.chat.id, 'Enter the text or the sticker or the photo:')
+    data[message.chat.id]['expecting_text'] = True
+    pickle.dump(data, open(config.way, "wb"))
 
 
-@bot1.message_handler(commands=['text'])
+@bot.message_handler(content_types=['text', 'sticker', 'photo'])
 def answer(message):
-    global expecting_text
-    bot1.send_message(message.chat.id, 'Enter the text:')
-    expecting_text = True
-
-
-@bot1.message_handler(content_types=['text'])
-def answer(message):
-    global text
-    global expecting_text
-    if expecting_text:
-        text = message.text
-        bot1.send_message(message.chat.id, 'Now text is ' + text)
+    global data
+    data = pickle.load(open(config.way, "rb"))
+    if data[message.chat.id]['expecting_text']:
+        bot.delete_message(chat_id=message.chat.id, message_id=message.message_id-1)
+        bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
+        data[message.chat.id]['expecting_text'] = False
+        if message.text:
+            data[message.chat.id]['type'] = 'text'
+            data[message.chat.id]['text'] = message.text
+            bot.send_message(message.chat.id, 'Now text is ' + data[message.chat.id]['text'])
+        elif message.sticker:
+            data[message.chat.id]['type'] = 'sticker'
+            data[message.chat.id]['sticker'] = message.sticker.file_id
+            bot.send_message(message.chat.id, 'Now sticker is ')
+            bot.send_sticker(message.chat.id, message.sticker.file_id)
+        elif message.photo:
+            if os.path.exists(str(message.chat.id)+'/image.jpg'):
+                os.remove(str(message.chat.id)+'/image.jpg')
+            data[message.chat.id]['type'] = 'photo'
+            bot.send_message(message.chat.id, 'Now photo is ')
+            bot.send_photo(message.chat.id, message.photo[0].file_id)
+            fileid = message.photo[-1].file_id
+            file_info = bot.get_file(fileid)
+            downloaded_file = bot.download_file(file_info.file_path)
+            with open("photos/%s/image.jpg" % message.chat.id, 'wb') as new_file:
+                new_file.write(downloaded_file)
+        pickle.dump(data, open(config.way, "wb"))
 
 
 while 1:
-    bot1.polling(none_stop=True)
+    bot.polling(none_stop=True)
