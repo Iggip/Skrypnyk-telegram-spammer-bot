@@ -24,4 +24,4 @@ use command:
 # SETTINGS in config.py
 TOKENS - is list that contains every one of bots tokens
 
-way - is the path to the file where the settings will be saved
+way - is the path to the file where the settings will be saved(example: SAS.SAS)
