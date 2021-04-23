@@ -1,5 +1,5 @@
 # Skrypnyk-telegram-spamer-bot
-Skrypnyk is a set of telegram bots (now <= 10), which can send text countless times in one chat
+Skrypnyk is a set of telegram bots (< 200000), which can send text countless times in one group
 
 # INSTALL
 git clone https://github.com/Iggip/Skrypnyk-telegram-spamer-bot/
@@ -19,9 +19,9 @@ use command:
 
 * /stop - to stop spaming
 
-* /text - to enter new message text
+* /text - to enter new message text(text or sticker or photo)
 
 # SETTINGS in config.py
 TOKENS - is list that contains every one of bots tokens
 
-text - is a default text that bots will send
+way - is the path to the file where the settings will be saved
